@@ -24,6 +24,9 @@ public class Employee {
     public String getPosition() {
         return position;
     }
+    public int getSalary() {
+        return salary;
+    }
 
     @Override
     public String toString() {
