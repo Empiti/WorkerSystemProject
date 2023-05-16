@@ -15,5 +15,11 @@ public class Main {
 
         employeeManager.listAllEmployees();
 
+        int employeeIDToUpdate = 1;
+        String newPosition = "nowa pozycja";
+        int newSalary = 5000;
+        employeeManager.updateEmployee(employeeIDToUpdate, newPosition, newSalary);
+        employeeManager.listAllEmployees();
+
     }
 }
