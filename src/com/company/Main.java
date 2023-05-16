@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Main {
 
@@ -38,16 +39,20 @@ public class Main {
                 }
                 case 3:
                 {
+                    System.out.print("Podaj ID pracownika: ");
                     int id = Integer.parseInt(bufferedReader.readLine());
                     Employee employee = employeeManager.searchEmployeeByID(id);
 
-                    if(employee != null){
-                        int salary = employee.getSalary();
-                        String position = employee.getPosition();
-                        employee.setSalary(10000);
-                        employeeManager.updateEmployee(id, position, salary);}
-                    break;
+                    if (employee != null) {
 
+                        Scanner scanner = new Scanner(System.in);
+                        System.out.print("Podaj nową pozycje pracownika : ");
+                        String position = scanner.nextLine();
+                        System.out.print("Podaj nową wypłatę pracownika : ");
+                        int salary = scanner.nextInt();
+                        employeeManager.updateEmployee(id, position, salary);
+                    }
+                    break;
                 }
                 case 4:
                 {
