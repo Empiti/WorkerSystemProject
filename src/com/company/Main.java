@@ -33,25 +33,16 @@ public class Main {
                     break;
                 case 2:
                 {
+                    System.out.print("Podaj ID pracownika: ");
                     int id = Integer.parseInt(bufferedReader.readLine());
-                    employeeManager.removeEmployee(employeeManager.searchEmployeeByID(id));
+                    employeeManager.removeEmployee(id);
                     break;
                 }
                 case 3:
                 {
                     System.out.print("Podaj ID pracownika: ");
                     int id = Integer.parseInt(bufferedReader.readLine());
-                    Employee employee = employeeManager.searchEmployeeByID(id);
-
-                    if (employee != null) {
-
-                        Scanner scanner = new Scanner(System.in);
-                        System.out.print("Podaj nową pozycje pracownika : ");
-                        String position = scanner.nextLine();
-                        System.out.print("Podaj nową wypłatę pracownika : ");
-                        int salary = scanner.nextInt();
-                        employeeManager.updateEmployee(id, position, salary);
-                    }
+                    employeeManager.updateEmployee(id);
                     break;
                 }
                 case 4:

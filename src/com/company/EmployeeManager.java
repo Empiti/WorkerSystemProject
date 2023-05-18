@@ -26,21 +26,28 @@ public class EmployeeManager {
         employees.put(employeeID, newEmployee);
 
     }
-    public void removeEmployee(Employee employee){
+    public void removeEmployee(int id){
+        Employee employee = searchEmployeeByID(id);
         if(employees.containsKey(employee.getEmployeeID()))
             employees.remove(employee.getEmployeeID());
         else
             System.out.println("Pracownik o takim ID nie istnieje");
     }
 
-    public void updateEmployee(int employeeID, String newPosition, int newSalary) {
-        if (employees.containsKey(employeeID)) {
-            Employee employee = employees.get(employeeID);
-            employee.setPosition(newPosition);
-            employee.setSalary(newSalary);
-        } else {
-            System.out.println("Pracownik o takim ID nie istnieje");
+    public void updateEmployee(int id){
+        Employee employee = searchEmployeeByID(id);
+        if(employees.containsKey(id))
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Podaj nową pozycje pracownika: ");
+            String position = scanner.nextLine();
+            System.out.print("Podaj nowe zarobki pracownika: ");
+            int salary = Integer.parseInt(scanner.nextLine());
+            employee.setPosition(position);
+            employee.setSalary(salary);
         }
+        else
+            System.out.println("Pracownik o takim ID nie istnieje");
     }
 
     public Employee searchEmployeeByID(int employeeID) {
